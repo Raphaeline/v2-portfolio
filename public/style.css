@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("../fonts/custom-font.woff") format("woff");
+  /* Tambahkan format-file dan sumber lainnya sesuai dengan kebutuhanmu */
+}
+
+/* Gunakan font kustom dalam elemen */
+.custom-font {
+  font-family: "CustomFont", sans-serif;
+}
