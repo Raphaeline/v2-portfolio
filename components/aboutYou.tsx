@@ -17,6 +17,10 @@ const About = () => {
 
   return (
     <section id="about">
+      <div className="xl:hidden block">
+        <p className="font-Code-Pro text-base py-1">hi my name is..</p>
+        <h1 className="text-4xl font-grape-nuts italic font-bold py-3">Muhamad Al Fitra Zulfikhar Akbar</h1>
+      </div>
       <div>
         <p className="font-Code-Pro text-justify pb-10 indent-8">
           Hello people, you can call me <span className="font-black">Zul</span>, and sometimes I'm called <span className="font-bold">Mai</span> by my friends. I'm a 3rd year student majoring in Electrical Engineering at{" "}
@@ -25,7 +29,7 @@ const About = () => {
         </p>
         {isImage?.map((profile: any) => (
           <div key={profile.id} className="">
-            <img src={profile.image_url} alt="Profile" className="object-cover h-96 rounded-sm m-2 w-full shadow" />
+            <img src={profile.image_url} alt="Profile" className="object-cover h-96 rounded-md m-2 w-full shadow-lg shadow-[#7f78af] " />
             <p className="font-Code-Pro text-center italic">{profile.quotes}</p>
           </div>
         ))}
