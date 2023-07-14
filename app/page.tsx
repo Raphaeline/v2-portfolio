@@ -6,16 +6,16 @@ import Skills from "../components/skills";
 import Experience from "../components/experience";
 import Projects from "@/components/projects";
 import Certification from "@/components/certification";
-import Sidebar from "@/components/sidebar";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Sidebar from "@/components/sidebar";
 
 const Page = () => {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="bg-[#EBC7E6] flex text-[#4d325b]">
+      <div className="bg-[#EBC7E6] flex text-[#4d325b] bg-cover h-full ">
         <Sidebar />
-        <div className="p-10 xl:pl-[380px] w-full">
+        <div className="p-10 xl:pl-[380px] w-full h-full">
           <About />
           <Skills />
           <Experience />

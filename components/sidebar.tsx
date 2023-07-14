@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const Sidebar = () => {
   return (
-    <div className="xl:w-[380px] w-[180px] h-full p-10 fixed hidden xl:block">
+    <div className="xl:w-[380px] w-[180px] h-full p-10 fixed hidden xl:block bg-[#EBC7E6]">
       <p className="font-Code-Pro lg:text-base text-sm py-1">hi my name is</p>
-      <h1 className="lg:text-4xl text-lg font-grape-nuts italic font-bold py-1">Muhamad Al Fitra Zulfikhar Akbar</h1>
+      <h1 className="lg:text-2xl text-lg font-grape-nuts italic font-bold py-1">Muhamad Al Fitra Zulfikhar Akbar</h1>
       <h2 className="text-base xl:block hidden pt-5 font-Code-Pro">
         Undergraduate Electrical Engineer at <span className="font-black">Telkom University</span>, also as Teaching Assistant in <span className="font-black">Daskom Laboratory</span>
       </h2>
-      <div className="py-10">
+      <div className="py-10 ">
         <ul className="font-Code-Pro text-center">
           <li className="pb-4">
             <a href="#about" className="relative lg:px-6 lg:py-3 px-3 py-2 font-bold text-black group">
@@ -39,7 +39,7 @@ const Sidebar = () => {
               <span className="relative xl:text-base text-xs">Projects</span>
             </a>
           </li>
-          <li className="py-4">
+          <li className="pt-4">
             <a href="#certificate" className="relative lg:px-6 lg:py-3 px-3 py-2 font-bold text-black group">
               <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-[#c0afe4] group-hover:translate-x-0 group-hover:translate-y-0"></span>
               <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
