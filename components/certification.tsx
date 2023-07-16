@@ -16,7 +16,7 @@ const Certification = () => {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   return (
-    <section id="certificate">
+    <section id="certificate" className="py-36">
       <h1 className="pl-3 font-Code-Pro text-xl font-black uppercase">Licenses & Certificates</h1>
       {data?.map((certification: any) => {
         const issuedDate = new Date(certification.issued);
@@ -27,7 +27,7 @@ const Certification = () => {
         const expiresMonth = expiresDate ? months[expiresDate.getMonth()] : "-";
         const expiresYear = expiresDate ? expiresDate.getFullYear() : "-";
         return (
-          <div className="xl:flex my-4 p-4 bg-[#c0afe4] shadow-md shadow-[#5f598b]  rounded-sm text-[#4d325b]" key={certification.id}>
+          <div className="xl:flex my-4 p-4 bg-[#bf4343] shadow-md shadow-[#661e1e]  rounded-sm text-[#FFEADD]" key={certification.id}>
             <div className="w-24 h-24 grid place-content-center">
               <img src={certification.image_url} alt={certification.organizer} width={100} height={100} className="w-20 p-2" />
             </div>

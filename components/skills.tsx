@@ -17,13 +17,13 @@ const Skills = () => {
   const isToolsSkills = data?.filter((skill: any) => skill.isTools === true);
   const isHardwareSkills = data?.filter((skill: any) => skill.isHardware === true);
   return (
-    <section id="skills" className="py-16 ">
+    <section id="skills" className="py-36 w-full">
       <h1 className="xl:hidden block pl-3 font-Code-Pro text-xl font-black">SKILLS</h1>
       <div className="flex flex-wrap justify-center">
         <div className="">
           <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">LANGUAGES</h1>
           {isProgramLanguages?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#7f78af] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-blue-950  shadow-md" key={skill.id}>
+            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
               <div className="w-14 h-14 grid place-content-center">
                 <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
               </div>
@@ -44,7 +44,7 @@ const Skills = () => {
         <div className="">
           <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">FRAMEWORKS</h1>
           {isFrameworkSkills?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#7f78af] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-blue-950  shadow-md" key={skill.id}>
+            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
               <div className="w-14 h-14 grid place-content-center">
                 <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
               </div>
@@ -65,7 +65,7 @@ const Skills = () => {
         <div className="">
           <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">TOOLS</h1>
           {isToolsSkills?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#7f78af] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-blue-950  shadow-md" key={skill.id}>
+            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
               <div className="w-14 h-14 grid place-content-center">
                 <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
               </div>
@@ -86,7 +86,7 @@ const Skills = () => {
         <div className="">
           <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">HARDWARE</h1>
           {isHardwareSkills?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#7f78af] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-blue-950  shadow-md" key={skill.id}>
+            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
               <div className="w-14 h-14 grid place-content-center">
                 <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
               </div>
