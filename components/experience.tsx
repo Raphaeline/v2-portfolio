@@ -27,8 +27,8 @@ const Experience = () => {
         const formattedUntil = toDate ? `${months[toDate.getMonth()]} ${toDate.getFullYear()}` : "Now";
 
         return (
-          <div className="xl:flex bg-[#bf4343] p-4 hover:bg-[#e68f8f] shadow-md hover:shadow-lg rounded-sm hover:rounded-sm text-[#FFEADD] hover:text-[#3e1c1c]">
-            <div className="w-60 my-10">
+          <div className="xl:flex bg-[#bf4343]  my-10 p-4 hover:bg-[#e68f8f] shadow-md hover:shadow-lg rounded-sm hover:rounded-sm text-[#FFEADD] hover:text-[#3e1c1c]">
+            <div className="w-60">
               <h1 className="font-Code-Pro opacity-50 ">
                 {formattedFrom} - {formattedUntil}
               </h1>
