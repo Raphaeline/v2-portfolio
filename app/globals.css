@@ -28,17 +28,17 @@ body::-webkit-scrollbar-track {
   background: transparent;
 }
 
+body::-webkit-scrollbar {
+  background: transparent;
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 1, 0.3);
+}
+
 body::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-/* Hide horizontal scrollbar */
-body::-webkit-scrollbar-horizontal {
-  height: 0.5rem;
-}
-
-body::-webkit-scrollbar-thumb:horizontal {
-  background: transparent;
+  background-color: #caff00;
 }
 
 .typing-cursor {

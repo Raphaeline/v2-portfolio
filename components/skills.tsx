@@ -2,8 +2,41 @@ import React from "react";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import supabase from "../utils/supabaseClient";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
-const Skills = () => {
+interface SkillItemProps {
+  skill: {
+    id: string;
+    icon_url: string;
+    skill_name: string;
+  
+  };
+}
+
+const SkillItem: React.FC<SkillItemProps> = ({ skill }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  const animation = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0)" : "translateY(20px)",
+  });
+
+  return (
+    <animated.div ref={ref} style={animation} className="flex 2xl:w-[340px] xl:w-48 w-14 h-14 2xl:h-20 bg-[#caff00] text-black 2xl:my-6 xl:my-4 my-2 mx-1 rounded-sm  shadow-[#200a0a] shadow-md" key={skill?.id}>
+      <div className="w-14 h-14 grid place-content-center my-auto">
+        <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
+      </div>
+      <div className="hidden p-4 xl:flex">
+        <h1 className="font-Code-Pro font-bold self-center text-base 2xl:text-xl">{skill.skill_name}</h1>
+      </div>
+    </animated.div>
+  );
+};
+
+const Skills: React.FC = () => {
   const { data, isError } = useQuery("skills", async () => {
     const { data } = await supabase.from("skills").select();
     return data;
@@ -12,96 +45,33 @@ const Skills = () => {
   if (isError) {
     return <p>Error occurred.</p>;
   }
+
   const isFrameworkSkills = data?.filter((skill: any) => skill.isFramework === true);
   const isProgramLanguages = data?.filter((skill: any) => skill.isLanguages === true);
   const isToolsSkills = data?.filter((skill: any) => skill.isTools === true);
   const isHardwareSkills = data?.filter((skill: any) => skill.isHardware === true);
+
   return (
-    <section id="skills" className="py-36 w-full">
-      <h1 className="xl:hidden block pl-3 font-Code-Pro text-xl font-black">SKILLS</h1>
+    <section id="skills" className="py-10 bg-[#0b0a27] text-white">
       <div className="flex flex-wrap justify-center">
-        <div className="">
-          <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">LANGUAGES</h1>
+        <div>
           {isProgramLanguages?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
-              <div className="w-14 h-14 grid place-content-center">
-                <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
-              </div>
-
-              <div className="hidden p-4 xl:flex">
-                <h1 className=" text-md font-Code-Pro font-bold self-center">{skill.skill_name}</h1>
-                {/* <p className="font-Code-Pro">{skill.description}</p>
-            <div className="flex">
-              <p>
-                <span>{skill.level}</span>%
-              </p>
-              <div>..............................</div>
-            </div> */}
-              </div>
-            </div>
+            <SkillItem key={skill.id} skill={skill} />
           ))}
         </div>
-        <div className="">
-          <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">FRAMEWORKS</h1>
+        <div>
           {isFrameworkSkills?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
-              <div className="w-14 h-14 grid place-content-center">
-                <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
-              </div>
-
-              <div className="hidden p-4 xl:flex">
-                <h1 className=" text-md font-Code-Pro font-bold self-center">{skill.skill_name}</h1>
-                {/* <p className="font-Code-Pro">{skill.description}</p>
-              <div className="flex">
-                <p>
-                  <span>{skill.level}</span>%
-                </p>
-                <div>..............................</div>
-              </div> */}
-              </div>
-            </div>
+            <SkillItem key={skill.id} skill={skill} />
           ))}
         </div>
-        <div className="">
-          <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">TOOLS</h1>
+        <div>
           {isToolsSkills?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
-              <div className="w-14 h-14 grid place-content-center">
-                <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
-              </div>
-
-              <div className="hidden p-4 xl:flex">
-                <h1 className="font-Code-Pro font-bold self-center">{skill.skill_name}</h1>
-                {/* <p className="font-Code-Pro">{skill.description}</p>
-              <div className="flex">
-                <p>
-                  <span>{skill.level}</span>%
-                </p>
-                <div>..............................</div>
-              </div> */}
-              </div>
-            </div>
+            <SkillItem key={skill.id} skill={skill} />
           ))}
         </div>
-        <div className="">
-          <h1 className="xl:block hidden text-center font-Code-Pro text-xl font-black">HARDWARE</h1>
+        <div>
           {isHardwareSkills?.map((skill: any) => (
-            <div className="flex xl:w-48 w-14 h-14 bg-[#bf4343] xl:my-4 my-2 mx-1 rounded-sm text-white shadow-[#200a0a] shadow-md" key={skill.id}>
-              <div className="w-14 h-14 grid place-content-center">
-                <img src={skill.icon_url} alt={skill.skill_name} width={100} height={100} className="w-20 p-2" />
-              </div>
-
-              <div className="hidden p-4 xl:flex">
-                <h1 className="font-Code-Pro font-bold self-center">{skill.skill_name}</h1>
-                {/* <p className="font-Code-Pro">{skill.description}</p>
-              <div className="flex">
-                <p>
-                  <span>{skill.level}</span>%
-                </p>
-                <div>..............................</div>
-              </div> */}
-              </div>
-            </div>
+            <SkillItem key={skill.id} skill={skill} />
           ))}
         </div>
       </div>
