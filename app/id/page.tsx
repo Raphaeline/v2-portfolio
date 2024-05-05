@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import About from "../components/en/aboutYou";
-import Skills from "../components/en/skills";
-import Experience from "../components/en/experience";
-import Projects from "@/components/en/projects";
-import Certification from "@/components/en/certification";
+import About from "../../components/id/aboutYou";
+import Skills from "../../components/id/skills";
+import Experience from "../../components/id/experience";
+import Projects from "@/components/id/projects";
+import Certification from "@/components/id/certification";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Navbar from "../components/en/navbar";
+import Navbar from "../../components/en/navbar";
 
 const Page = () => {
 	const queryClient = new QueryClient();
