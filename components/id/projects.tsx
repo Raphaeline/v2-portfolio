@@ -1,15 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { useQuery } from "react-query";
-import supabase from "../../utils/supabaseClient";
+import useProjects from "@/hooks/useProjects";
 
 const Projects = () => {
-	const { data, isError } = useQuery("projects", async () => {
-		const { data } = await supabase.from("projects").select();
-		return data;
-	});
+	const { data, error } = useProjects();
 
-	if (isError) {
+	if (error) {
 		return <p>Error occurred.</p>;
 	}
 
@@ -19,17 +15,13 @@ const Projects = () => {
 			<hr></hr>
 			<div className="flex flex-row justify-center ">
 				{data?.map((project: any) => (
-					<a
-						href={project.url}
-						target="_blank"
-						className="flex flex-col w-[150px] xl:w-[400px] my-10 mx-auto relative overflow-hidden group bg-[#0b0a27] hover:bg-[#111331] rounded-lg shadow-lg hover:shadow-xl  hover:shadow-[#5d7f9b]"
-					>
+					<div className="flex flex-col w-[150px] xl:w-[400px] my-10 mx-auto relative overflow-hidden group bg-[#0b0a27] hover:bg-[#111331] rounded-lg shadow-lg">
 						<div className="mx-4 my-10">
 							<h1 className="text-[12px] xl:text-[22px] font-bold italic my-1">{project.project_name}</h1>
 							<p className="text-xs xl:text-base font-Code-Pro my-4">{project.role}</p>
 							<p className="text-xs xl:text-sm font-Code-Pro t my-4">{project.description}</p>
 						</div>
-					</a>
+					</div>
 				))}
 			</div>
 		</section>

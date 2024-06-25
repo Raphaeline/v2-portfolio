@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import About from "../../components/id/aboutYou";
 import Skills from "../../components/id/skills";
 import Experience from "../../components/id/experience";
@@ -22,9 +21,6 @@ const Page = () => {
 					<Certification />
 					<Projects />
 				</div>
-				{/* <div className="flex  bg-[#0B0A27] p-4">
-          <p className="text-white italic">sssss</p>
-        </div> */}
 			</div>
 		</QueryClientProvider>
 	);

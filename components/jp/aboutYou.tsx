@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useQuery } from "react-query";
-import supabase from "../../utils/supabaseClient";
+import useProjects from "@/hooks/useAbout";
 
 const About = () => {
-	const { data, isError } = useQuery("profiles", async () => {
-		const { data } = await supabase.from("profiles").select();
-		return data;
-	});
 
-	if (isError) {
+	const { data, error } = useProjects();
+
+	if (error) {
 		return <p>Error occurred.</p>;
 	}
 
@@ -39,6 +36,9 @@ const About = () => {
 							</a>
 							<a href="https://open.spotify.com/user/31nsjupqrny4uzbtxnfhzuyomqvq?si=493b7b19225b4ace" target="_blank" className="p-1 xl:p-4 w-full">
 								<Image src="/spotify.png" alt="" width={50} height={50} className="hover:invert invert-0" />
+							</a>
+							<a href="mailto:zulfikhar.akbar1412@gmail.com" target="_blank" className="p-1 xl:p-4 w-full">
+								<Image src="/mail3.png" alt="" width={60} height={60} className="hover:invert invert-0" />
 							</a>
 						</div>
 					</div>

@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useQuery } from "react-query";
-import supabase from "../../utils/supabaseClient";
+import useProjects from "@/hooks/useAbout";
+import GradientWheel from "@/components/loading";
 
 const About = () => {
-	const { data, isError } = useQuery("profiles", async () => {
-		const { data } = await supabase.from("profiles").select();
-		return data;
-	});
+	const { data, error, isLoading } = useProjects();
 
-	if (isError) {
+	if (error) {
 		return <p>Error occurred.</p>;
 	}
 
-	const isImage = data && data.filter((profile: any) => profile.isImageActive === true);
+	if (isLoading) {
+		return <GradientWheel />;
+	}
 
 	return (
 		<section id="about" className="bg-[#70aede] relative">
 			<div className=" xl:mb-20 relative z-0 flex px-12 pt-24 xl:pt-48">
-				{/* <div className="hidden xl:block absolute top-auto xl:top-12 right-0 -z-10">
-          {isImage?.map((profile: any) => (
-            <Image src={profile.image_url} alt="" width={700} height={500} className="w-[200px] xl:w-[700px] " />
-          ))}
-        </div> */}
 				<div className="w-3/4 m-1 xl:m-4 relative z-10">
 					<h1 className="text-[20px] sm:text-[30px] xl:text-[42px] 2xl:text-[56px] font-bold italic">Muhamad Al Fitra Zulfikhar Akbar</h1>
 					<p className="font-Code-Pro text:sm sm:text-base xl:text-lg 2xl:text-xl">an Electrical Engineer Student from Telkom University</p>
@@ -39,6 +33,9 @@ const About = () => {
 							</a>
 							<a href="https://open.spotify.com/user/31nsjupqrny4uzbtxnfhzuyomqvq?si=493b7b19225b4ace" target="_blank" className="p-1 xl:p-4 w-full">
 								<Image src="/spotify.png" alt="" width={50} height={50} className="hover:invert invert-0" />
+							</a>
+							<a href="mailto:zulfikhar.akbar1412@gmail.com" target="_blank" className="p-1 xl:p-4 w-full">
+								<Image src="/mail3.png" alt="" width={60} height={60} className="hover:invert invert-0" />
 							</a>
 						</div>
 					</div>

@@ -1,15 +1,10 @@
 import React from "react";
-import Image from "next/image";
-import { useQuery } from "react-query";
-import supabase from "../../utils/supabaseClient";
+import useProjects from '@/hooks/useProjects';
 
 const Projects = () => {
-	const { data, isError } = useQuery("projects", async () => {
-		const { data } = await supabase.from("projects").select();
-		return data;
-	});
+	const { data, error, isLoading } = useProjects();
 
-	if (isError) {
+	if (error) {
 		return <p>Error occurred.</p>;
 	}
 
