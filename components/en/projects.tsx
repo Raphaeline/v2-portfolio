@@ -18,7 +18,7 @@ const Projects = () => {
 					<div className="flex flex-col w-[150px] xl:w-[400px] my-10 mx-auto relative overflow-hidden group bg-[#0b0a27] hover:bg-[#111331] rounded-lg shadow-lg">
 						<div className="mx-4 my-10">
 							<h1 className="text-[12px] xl:text-[22px] font-bold italic my-1">{project.project_name}</h1>
-							<p className="text-xs xl:text-base font-Code-Pro my-4">{project.role}</p>
+							<p className="text-xs xl:text-base font-Code-Pro my-4 text-[#caff00]">{project.role}</p>
 							<p className="text-xs xl:text-sm font-Code-Pro t my-4">{project.description}</p>
 						</div>
 					</div>
